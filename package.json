@@ -1,0 +1,25 @@
+{
+  "name": "fec-proxy",
+  "version": "1.0.0",
+  "description": "Proxy server for the Amazon.com App",
+  "scripts": {
+    "start": "nodemon --inspect=4000 proxy/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quesarito/product-proxy.git"
+  },
+  "author": "JJ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Quesarito/product-proxy/issues"
+  },
+  "homepage": "https://github.com/Quesarito/product-proxy#readme"
+}
