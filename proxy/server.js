@@ -13,43 +13,38 @@ app.get('/api/products', (req, res) => {
   axios.get('http://localhost:3002/api/products', {
     params: req.query,
   })
-  .then(product => {
-    res.status(200).send(product.data);
-  })
+  .then(product => res.status(200).send(product.data))
   .catch(() => console.log('ERROR IN PROXY SERVER /API/PRODUCTS'));
 });
 
 app.get('/api/items/:itemId', (req, res) => {
   axios.get(`http://localhost:8888/api/items/${ req.params.itemId }`)
-  .then(({ data }) => {
-    res.status(200).send(data);
-  })
-  .catch(() => console.log('ERORR IN PROXY SERVER /API/ITEMS/:ITEMID'))
+  .then(items => res.status(200).send(items.data))
+  .catch(() => console.log('ERROR IN PROXY SERVER /API/ITEMS/:ITEMID'));
 });
 
 app.get('/api/related/:itemId', (req, res) => {
-  console.log('REQUEST INSIDE /API/RELATED IN PROXY: ', req.params);
   axios.get(`http://localhost:8888/api/related/${ req.params.itemId }`)
-  .then(({ data }) => {
-    console.log('DATADATADATA: ', data);
-    res.status(200).send(data);
-  })
-  .catch(() => console.log('ERROR IN PROXY SERVER /API/RELATED/:ITEMID'))
+  .then(relatedItems => res.status(200).send(relatedItems.data))
+  .catch(() => console.log('ERROR IN PROXY SERVER /API/RELATED/:ITEMID'));
 });
 
-app.get('api/frequent/:itemId', (req, res) => {
-  axios.get(`http://localhost:8888/api/frequent/${ req.query.itemId }`)
-  .then(({ data }) => {
-    res.status(200).send(data);
-  })
-  .catch(() => console.log('ERROR IN PROXY SERVER /API/FREQUENT'))
-
+app.get('/api/frequent/:itemId', (req, res) => {
+  axios.get(`http://localhost:8888/api/frequent/${ req.params.itemId }`)
+  .then(frequentlyTogether => res.status(200).send(frequentlyTogether.data))
+  .catch(() => console.log('ERROR IN PROXY SERVER /API/FREQUENT/:ITEMID'))
 });
 
-app.post('api/messages', (req, res) => {
+app.post('/api/messages', (req, res) => {
   axios.post('http://localhost:8888/api/messages', {
     
   })
+});
+
+app.get('/reviews/:productId', (req, res) => {
+  axios.get(`http://localhost:3003/reviews/${ req.params.productId }`)
+  .then(reviewsData => res.status(200).send(reviewsData.data))
+  .catch(() => console.log('ERROR IN PROXY SERVER /REVIEWS/:PRODUCTID'))
 });
 
 app.listen(port, (err) => {
