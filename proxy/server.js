@@ -9,6 +9,14 @@ app.use(morgan('tiny'));
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+// app.get('/:category/:query', (res, req) => {
+//   // console.log('REQ.PARAMS: ', req.params);
+//   // axios.get('http://localhost:3004/', {
+//   //   category: res.category,
+//   // })
+//   // .then((navbar) => res.status(200).send(navbar.data));
+// });
+
 app.get('/api/products', (req, res) => {
   axios.get('http://localhost:3002/api/products', {
     params: req.query,
@@ -36,13 +44,15 @@ app.get('/api/frequent/:itemId', (req, res) => {
 });
 
 app.post('/api/messages', (req, res) => {
-  axios.post('http://localhost:8888/api/messages', {
+  // axios.post('http://localhost:8888/api/messages', {
     
-  })
+  // })
 });
 
 app.get('/reviews/:productId', (req, res) => {
-  axios.get(`http://localhost:3003/reviews/${ req.params.productId }`)
+  axios.get(`http://localhost:3003/reviews/${ req.params.productId }`, {
+    params: req.query,
+  })
   .then(reviewsData => res.status(200).send(reviewsData.data))
   .catch(() => console.log('ERROR IN PROXY SERVER /REVIEWS/:PRODUCTID'))
 });

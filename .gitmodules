@@ -10,3 +10,6 @@
 [submodule "reviews-service"]
 	path = reviews-service
 	url = https://github.com/Quesarito/reviews-service.git
+[submodule "vrtobar-service"]
+	path = vrtobar-service
+	url = https://github.com/Quesarito/vrtobar-service.git
