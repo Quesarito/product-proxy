@@ -9,14 +9,6 @@ app.use(morgan('tiny'));
 
 app.use(express.static(path.join(__dirname, '/public')));
 
-// app.get('/:category/:query', (res, req) => {
-//   // console.log('REQ.PARAMS: ', req.params);
-//   // axios.get('http://localhost:3004/', {
-//   //   category: res.category,
-//   // })
-//   // .then((navbar) => res.status(200).send(navbar.data));
-// });
-
 app.get('/api/products', (req, res) => {
   axios.get('http://localhost:3002/api/products', {
     params: req.query,
