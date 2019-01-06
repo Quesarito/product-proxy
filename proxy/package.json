@@ -1,0 +1,24 @@
+{
+  "name": "Proxy-Image-dependency-list",
+  "version": "1.0.0",
+  "description": "This will render the product view and photo gallery component for our Amazon.com-like web app.",
+  "author": "JJ Velez",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
