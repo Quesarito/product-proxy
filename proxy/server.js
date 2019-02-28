@@ -32,7 +32,7 @@ app.get('/api/related/:itemId', (req, res) => {
 app.get('/api/frequent/:itemId', (req, res) => {
   axios.get(`http://ec2-54-183-132-22.us-west-1.compute.amazonaws.com:8888/api/frequent/${ req.params.itemId }`)
   .then(frequentlyTogether => res.status(200).send(frequentlyTogether.data))
-  .catch(() => console.log('ERROR IN PROXY SERVER /API/FREQUENT/:ITEMID'))
+  .catch(() => console.log('ERROR IN PROXY SERVER /API/FREQUENT/:ITEMID'));
 });
 
 app.post('/api/messages', (req, res) => {
